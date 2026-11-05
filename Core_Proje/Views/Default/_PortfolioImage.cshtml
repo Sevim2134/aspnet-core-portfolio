@@ -1,0 +1,49 @@
+@model string
+@{
+    string? image = Model?.Trim().Replace('\\', '/');
+    bool allowed = !string.IsNullOrWhiteSpace(image);
+    if (allowed)
+    {
+        try
+        {
+            var decoded = Uri.UnescapeDataString(image!).Replace('\\', '/');
+            // Eski tema yolları, kodlanmış yollar ve uzak /Template/ adresleri de yüklenmez.
+            allowed = !System.Text.RegularExpressions.Regex.IsMatch(
+                decoded, @"(?:^|/)Template(?:/|$|[?#])",
+                System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+            if (System.Text.RegularExpressions.Regex.IsMatch(image!, @"^[a-zA-Z][a-zA-Z0-9+.-]*:"))
+            {
+                allowed = allowed && Uri.TryCreate(image, UriKind.Absolute, out var address) &&
+                    (address.Scheme == Uri.UriSchemeHttp || address.Scheme == Uri.UriSchemeHttps);
+            }
+            else
+            {
+                allowed = allowed && !image!.StartsWith("//", StringComparison.Ordinal);
+            }
+        }
+        catch (UriFormatException)
+        {
+            allowed = false;
+        }
+    }
+}
+@{
+    int coverVariant = ViewData["CoverVariant"] is int variant ? Math.Abs(variant % 4) + 1 : 1;
+    string? coverTitle = ViewData["CoverTitle"] as string;
+    string coverNumber = ViewData["CoverNumber"] as string ?? "01";
+    string coverPath = $"~/images/portfolio/cover-{coverVariant:00}.svg";
+}
+<div class="portfolio-media @(allowed ? "has-image" : "")">
+    @if (allowed)
+    {
+        <img class="content-image" src="@Url.Content(image!)" alt="" loading="lazy"
+             onerror="this.parentElement.classList.add('is-unavailable')" />
+    }
+    <div class="media-cover" aria-hidden="true">
+        <img src="@Url.Content(coverPath)" alt="" width="800" height="500" loading="lazy" />
+        @if (!string.IsNullOrWhiteSpace(coverTitle))
+        {
+            <div class="cover-caption"><span>ÇALIŞMA / @coverNumber</span><strong>@coverTitle</strong></div>
+        }
+    </div>
+</div>

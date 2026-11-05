@@ -1,0 +1,30 @@
+@using EntityLayer.Concrete
+@model List<Skill>
+<section id="skills" class="portfolio-section" aria-labelledby="skills-title">
+    <div class="container">
+        <div class="skills-layout">
+            <div class="section-heading">
+                <p class="eyebrow">ARAÇLAR VE BECERİLER</p>
+                <h2 id="skills-title">Üretirken<br />kullandıklarım<span class="accent-text">.</span></h2>
+                <p>Yeteneklerim, tek bakışta.</p>
+            </div>
+            <div class="skills-grid">
+                @for (var index = 0; index < Model.Count; index++)
+                {
+                    var item = Model[index];
+                    var percent = int.TryParse(item.Value, out var value) ? Math.Clamp(value, 0, 100) : 0;
+                    <article class="skill-item">
+                        <span class="skill-index" aria-hidden="true">@((index + 1).ToString("00"))</span>
+                        <div class="skill-content">
+                            <div class="skill-heading"><h3>@item.Title</h3><span class="skill-value">@item.Value%</span></div>
+                            <div class="progress" role="progressbar" aria-label="@item.Title" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" style="width: @(percent)%"></div>
+                            </div>
+                        </div>
+                    </article>
+                }
+                @if (Model.Count == 0) { <p class="empty-state">Yetenek bilgileri henüz eklenmedi.</p> }
+            </div>
+        </div>
+    </div>
+</section>

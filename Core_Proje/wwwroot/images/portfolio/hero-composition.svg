@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="560" viewBox="0 0 640 560" fill="none">
+<!-- Original geometric composition for this portfolio. No external artwork or fonts. -->
+<defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#B9CBC0"/></pattern><linearGradient id="surface" x1="130" y1="80" x2="510" y2="480" gradientUnits="userSpaceOnUse"><stop stop-color="#E9F1E6"/><stop offset="1" stop-color="#D5E3D6"/></linearGradient><filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#163D2E" flood-opacity=".12"/></filter></defs>
+<rect x="36" y="44" width="568" height="468" rx="44" fill="url(#dots)"/>
+<circle cx="328" cy="283" r="209" fill="url(#surface)"/><circle cx="328" cy="283" r="234" stroke="#D3DED2" stroke-dasharray="4 9"/>
+<path d="M129 332C66 204 161 99 272 83" stroke="#176343" stroke-width="2"/><circle cx="272" cy="83" r="6" fill="#176343"/>
+<g transform="rotate(-8 324 275)" filter="url(#shadow)">
+<rect x="132" y="112" width="390" height="306" rx="18" fill="#FFF" stroke="#D7E2D6"/>
+<path d="M132 130C132 120 140 112 150 112H504C514 112 522 120 522 130V151H132V130Z" fill="#F3F6EF"/>
+<circle cx="154" cy="132" r="4" fill="#A4B9A6"/><circle cx="169" cy="132" r="4" fill="#C8D5C5"/><circle cx="184" cy="132" r="4" fill="#C8D5C5"/>
+<rect x="386" y="126" width="111" height="11" rx="5" fill="#DDE7D8"/>
+<rect x="154" y="174" width="346" height="159" rx="9" fill="#133E2C"/>
+<path d="M319 192V314M258 253H380" stroke="#CBEB93" stroke-width="53"/><circle cx="319" cy="253" r="85" stroke="#CBEB93" stroke-width="1" opacity=".5"/>
+<circle cx="455" cy="204" r="11" fill="#CBEB93"/><path d="M195 303L229 269L251 291" stroke="#B2CBAF" stroke-width="2"/>
+<rect x="154" y="355" width="148" height="11" rx="5" fill="#324C3B"/><rect x="154" y="378" width="224" height="7" rx="3" fill="#DDE5D9"/>
+<rect x="429" y="355" width="71" height="32" rx="16" fill="#E9F0DD"/><path d="M454 371H477M470 364L477 371L470 378" stroke="#176343" stroke-width="2"/>
+</g>
+<g transform="rotate(10 494 384)" filter="url(#shadow)"><rect x="434" y="273" width="123" height="220" rx="22" fill="#FAFCF6" stroke="#294D37" stroke-width="3"/><rect x="474" y="284" width="43" height="6" rx="3" fill="#294D37"/><rect x="446" y="309" width="99" height="98" rx="8" fill="#DAE7CB"/><circle cx="496" cy="357" r="31" stroke="#176343" stroke-width="14"/><rect x="448" y="422" width="69" height="7" rx="3" fill="#294D37"/><rect x="448" y="439" width="90" height="5" rx="2" fill="#CBD8C5"/><rect x="448" y="464" width="93" height="14" rx="7" fill="#176343"/></g>
+<g transform="rotate(-5 156 410)" filter="url(#shadow)"><rect x="51" y="371" width="191" height="79" rx="14" fill="#CBEB93"/><rect x="68" y="390" width="40" height="40" rx="11" fill="#173F2E"/><path d="M85 400L77 410L85 420M91 400L99 410L91 420" stroke="#CBEB93" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="122" y="403" fill="#173F2E" font-family="system-ui,sans-serif" font-size="10" letter-spacing="2">FİKİRDEN</text><text x="122" y="423" fill="#173F2E" font-family="system-ui,sans-serif" font-size="14" font-weight="700">uygulamaya.</text></g>
+<path d="M533 90V120M518 105H548" stroke="#176343" stroke-width="2"/><circle cx="82" cy="267" r="7" fill="#D3AA7A"/><path d="M312 490L323 508L334 490" stroke="#176343" stroke-width="2"/>
+</svg>

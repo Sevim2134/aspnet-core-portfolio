@@ -1,0 +1,36 @@
+@using EntityLayer.Concrete
+@model List<Feature>
+<section class="portfolio-hero" aria-label="Tanıtım">
+    <div class="container">
+        <div class="hero-layout">
+            <div class="hero-copy">
+                @if (Model.Count == 0)
+                {
+                    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>KİŞİSEL PORTFÖY</p>
+                    <h1>Fikirden <span class="hero-tagline">uygulamaya<span class="accent-text">.</span></span></h1>
+                    <p class="hero-description">Çalışmalar, deneyimler ve yeni olasılıklar.</p>
+                }
+                @foreach (var item in Model)
+                {
+                    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>@item.Header</p>
+                    <h1>@item.Name<span class="accent-text">.</span></h1>
+                    <p class="hero-description">@item.Title</p>
+                }
+                <div class="hero-actions">
+                    <a class="btn btn-portfolio" href="#portfolio">Projeleri keşfet <span aria-hidden="true">↗</span></a>
+                    <a class="btn btn-portfolio-outline" href="#contact">Birlikte konuşalım</a>
+                </div>
+                <div class="hero-social">@await Component.InvokeAsync("SocialMediaList")</div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+                <span class="art-coordinate art-coordinate-top">FİKİR / TASARIM / UYGULAMA</span>
+                <img src="~/images/portfolio/hero-composition.svg" alt="" width="640" height="560" fetchpriority="high" />
+                <span class="art-coordinate art-coordinate-bottom">HER ÇALIŞMA, YENİ BİR BAKIŞ.</span>
+            </div>
+        </div>
+        <div class="hero-bottom">
+            <span>Çalışmalarımı yakından keşfedin</span>
+            <a href="#portfolio">Aşağı kaydır <span aria-hidden="true">↓</span></a>
+        </div>
+    </div>
+</section>

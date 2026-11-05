@@ -1,0 +1,15 @@
+@using EntityLayer.Concrete
+@model List<Contact>
+@foreach (var item in Model)
+{
+    <aside class="portfolio-card mb-3">
+        <p class="eyebrow">İLETİŞİM BİLGİLERİ</p>
+        <h3 class="h4">@item.Title</h3>
+        <p class="preserve-lines text-body-secondary">@item.Description</p>
+        <dl class="contact-facts mb-0">
+            <dt>E-posta</dt><dd>@item.Mail</dd>
+            <dt>Telefon</dt><dd>@item.Phone</dd>
+        </dl>
+    </aside>
+}
+@if (Model.Count == 0) { <p class="empty-state">İletişim bilgileri henüz eklenmedi. Form üzerinden mesaj bırakabilirsiniz.</p> }

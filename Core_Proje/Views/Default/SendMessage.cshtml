@@ -1,0 +1,16 @@
+<form class="portfolio-card contact-form" method="post" action="/Default/SendMessage/">
+    <h3 class="h5 mb-4">Mesaj bırakın</h3>
+    <div class="mb-3">
+        <label class="form-label" for="contact-name">Adınız</label>
+        <input class="form-control" id="contact-name" name="Name" type="text" autocomplete="name" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="contact-email">E-posta adresiniz</label>
+        <input class="form-control" id="contact-email" name="Mail" type="email" autocomplete="email" required />
+    </div>
+    <div class="mb-4">
+        <label class="form-label" for="contact-message">Mesajınız</label>
+        <textarea class="form-control" id="contact-message" name="Content" rows="5" required></textarea>
+    </div>
+    <button class="btn btn-portfolio" type="submit">Mesajı gönder <span aria-hidden="true">↗</span></button>
+</form>

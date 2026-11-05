@@ -1,0 +1,57 @@
+@using EntityLayer.Concrete
+@using System.Text.RegularExpressions
+@model List<Portfolio>
+@{
+    bool IsImagePath(string? value) =>
+        !string.IsNullOrWhiteSpace(value) &&
+        Regex.IsMatch(
+            Uri.UnescapeDataString(value.Trim()),
+            @"\.(?:avif|bmp|gif|heic|heif|ico|jpe?g|jfif|png|svgz?|tiff?|webp)(?:$|[?#\s])|^data:image/",
+            RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+}
+<section id="portfolio" class="portfolio-section section-tinted" aria-labelledby="portfolio-title">
+    <div class="container">
+        <div class="section-heading">
+            <p class="eyebrow">SEÇİLİ ÇALIŞMALAR</p>
+            <h2 id="portfolio-title">Fikirlerin somut hali<span class="accent-text">.</span></h2>
+            <p>Projelerim ve üzerinde çalıştığım uygulamalar.</p>
+        </div>
+        <div class="project-grid">
+            @for (var index = 0; index < Model.Count; index++)
+            {
+                var item = Model[index];
+                var projectTitle = IsImagePath(item.Name) ? $"Proje {index + 1:00}" : item.Name;
+                var coverData = new Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary(ViewData)
+                {
+                    ["CoverTitle"] = projectTitle,
+                    ["CoverVariant"] = index % 4,
+                    ["CoverNumber"] = (index + 1).ToString("00")
+                };
+                <article class="portfolio-card project-card">
+                    <div class="project-visual">
+                        @await Html.PartialAsync("~/Views/Default/_PortfolioImage.cshtml", item.ImgUrl ?? string.Empty, coverData)
+                        <span class="project-number">@((index + 1).ToString("00"))</span>
+                    </div>
+                    <div class="project-copy">
+                        <div class="project-heading">
+                            <h3>@projectTitle</h3>
+                            @if (!string.IsNullOrWhiteSpace(item.Platform) && !IsImagePath(item.Platform))
+                            {
+                                <span class="project-platform">@item.Platform</span>
+                            }
+                        </div>
+                        @if (!string.IsNullOrWhiteSpace(item.ProjectUrl) &&
+                            Uri.TryCreate(item.ProjectUrl, UriKind.Absolute, out var projectUri) &&
+                            (projectUri.Scheme == Uri.UriSchemeHttps || projectUri.Scheme == Uri.UriSchemeHttp))
+                        {
+                            <a class="project-link" href="@item.ProjectUrl" target="_blank" rel="noopener noreferrer">
+                                Projeyi incele <span aria-hidden="true">↗</span>
+                            </a>
+                        }
+                    </div>
+                </article>
+            }
+        </div>
+        @if (Model.Count == 0) { <p class="empty-state">Projeler henüz eklenmedi.</p> }
+    </div>
+</section>

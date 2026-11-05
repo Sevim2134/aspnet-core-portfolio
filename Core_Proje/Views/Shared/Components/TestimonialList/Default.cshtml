@@ -1,0 +1,22 @@
+@using EntityLayer.Concrete
+@model List<Testimonial>
+<section id="testimonials" class="portfolio-section section-tinted" aria-labelledby="testimonials-title">
+    <div class="container">
+        <div class="section-heading"><p class="eyebrow">BİRLİKTE ÇALIŞTIKLARIM</p><h2 id="testimonials-title">Referanslarım</h2></div>
+        <div class="row g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <figure class="portfolio-card testimonial-card h-100 mb-0">
+                        <blockquote class="mb-4"><p class="preserve-lines mb-0">@item.Comment</p></blockquote>
+                        <figcaption class="d-flex gap-3 align-items-center">
+                            <div class="testimonial-image">@await Html.PartialAsync("~/Views/Default/_PortfolioImage.cshtml", item.ImageUrl ?? string.Empty)</div>
+                            <div><span class="d-block fw-semibold">@item.ClientName</span><span class="small text-body-secondary">@item.Title · @item.Company</span></div>
+                        </figcaption>
+                    </figure>
+                </div>
+            }
+        </div>
+        @if (Model.Count == 0) { <p class="empty-state">Referanslar henüz eklenmedi.</p> }
+    </div>
+</section>

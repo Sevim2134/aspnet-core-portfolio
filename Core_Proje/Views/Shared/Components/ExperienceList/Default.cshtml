@@ -1,0 +1,25 @@
+@using EntityLayer.Concrete
+@model List<Experience>
+<section id="experience" class="portfolio-section" aria-labelledby="experience-title">
+    <div class="container">
+        <div class="section-heading">
+            <p class="eyebrow">YOLCULUĞUM</p><h2 id="experience-title">Deneyimlerim<span class="accent-text">.</span></h2>
+            <p>Çalışmalarımın arkasındaki birikim.</p>
+        </div>
+        <ol class="experience-list">
+            @foreach (var item in Model)
+            {
+                <li class="experience-entry">
+                    <div class="experience-when"><span class="timeline-dot" aria-hidden="true"></span><span>@item.Date</span></div>
+                    <article class="experience-content">
+                        <div>
+                            <h3>@item.Name</h3>
+                            <p class="preserve-lines">@item.Description</p>
+                        </div>
+                    </article>
+                </li>
+            }
+        </ol>
+        @if (Model.Count == 0) { <p class="empty-state">Deneyimler henüz eklenmedi.</p> }
+    </div>
+</section>

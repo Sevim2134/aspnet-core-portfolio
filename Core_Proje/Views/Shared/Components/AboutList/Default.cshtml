@@ -1,0 +1,26 @@
+@using EntityLayer.Concrete
+@model List<About>
+<section id="about" class="portfolio-section" aria-labelledby="about-title">
+    <div class="container">
+        <div class="section-heading"><p class="eyebrow">TANIŞALIM</p><h2 id="about-title">Hakkımda</h2></div>
+        @foreach (var item in Model)
+        {
+            <div class="row g-4 align-items-center mb-4">
+                <div class="col-lg-8">
+                    <h3 class="h4 mb-3">@item.Title</h3>
+                    <p class="preserve-lines text-body-secondary">@item.Description</p>
+                    <dl class="about-facts">
+                        <div><dt>Yaş</dt><dd>@item.Age</dd></div>
+                        <div><dt>E-posta</dt><dd>@item.Mail</dd></div>
+                        <div><dt>Telefon</dt><dd>@item.Phone</dd></div>
+                        <div><dt>Adres</dt><dd>@item.Address</dd></div>
+                    </dl>
+                </div>
+                <div class="col-lg-4">
+                    @await Html.PartialAsync("~/Views/Default/_PortfolioImage.cshtml", item.ImageUrl ?? string.Empty)
+                </div>
+            </div>
+        }
+        @if (Model.Count == 0) { <p class="empty-state">Hakkımda bilgileri henüz eklenmedi.</p> }
+    </div>
+</section>

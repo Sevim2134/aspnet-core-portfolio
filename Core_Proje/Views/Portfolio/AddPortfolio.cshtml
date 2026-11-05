@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model EntityLayer.Concrete.Portfolio
+@{
+	Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("AddPortfolio", "Portfolio", FormMethod.Post))
+{
+	<div class="col-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+
+				<p class="card-description"> Yeni Proje Ekleme Paneli </p>
+				<form class="forms-sample">
+
+					<br />
+					@Html.Label("Proje Başlığı")
+					@Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+					@Html.ValidationMessageFor(x => x.Name)
+					<br />
+					@Html.Label("Görsel 1")
+					@Html.TextBoxFor(x => x.ImgUrl, new { @class = "form-control" })
+					@Html.ValidationMessageFor(x => x.ImgUrl)
+					<br />
+					@Html.Label("Görsel 2")
+					@Html.TextBoxFor(x => x.ImageUrl2, new { @class = "form-control" })
+					@Html.ValidationMessageFor(x => x.ImageUrl2)
+					<br />
+					<br />
+					@Html.Label("Proje URL")
+					@Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control" })
+					@Html.ValidationMessageFor(x => x.ProjectUrl)
+					<br />
+					@Html.Label("Fiyat")
+					@Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+					@Html.ValidationMessageFor(x => x.Price)
+					<br />
+					@Html.Label("Tamalanma Oranı")
+					@Html.TextBoxFor(x => x.Value, new { @class = "form-control" })
+					@Html.ValidationMessageFor(x => x.Value)
+					<br />
+					<button class="btn btn-info">Kaydet</button>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+}

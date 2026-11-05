@@ -1,0 +1,45 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+@await Html.PartialAsync("HeaderPartial")
+<body class="portfolio-site" id="top">
+    <a class="skip-link" href="#content">İçeriğe geç</a>
+    @await Html.PartialAsync("NavbarPartial")
+    <main id="content">
+        @await Component.InvokeAsync("FeatureList")
+        @await Component.InvokeAsync("AboutList")
+        @await Component.InvokeAsync("ServiceList")
+        @await Component.InvokeAsync("SkillList")
+        @await Component.InvokeAsync("PortfolioList")
+        @await Component.InvokeAsync("ExperienceList")
+        @await Component.InvokeAsync("TestimonialList")
+        <section id="contact" class="portfolio-section" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">BİRLİKTE ÇALIŞALIM</p>
+                    <h2 id="contact-title">İletişim</h2>
+                    <p>Sorularınız ve proje fikirleriniz için mesaj bırakabilirsiniz.</p>
+                </div>
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-7">
+                        @await Html.PartialAsync("~/Views/Default/SendMessage.cshtml")
+                    </div>
+                    <div class="col-lg-5">
+                        @await Component.InvokeAsync("ContactDetails")
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="portfolio-footer">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <p class="mb-0">Portföy &middot; @DateTime.Now.Year</p>
+            <a href="#top">Sayfanın başına dön <span aria-hidden="true">↑</span></a>
+        </div>
+    </footer>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/portfolio.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="BusinessLayer/BusinessLayer.csproj" />
+  <Project Path="Core_Proje/Core_Proje.csproj" />
+  <Project Path="Core_Proje_Api/Core_Proje_Api.csproj" Id="5c78bdfa-d322-49b2-afa3-031766d2baca" />
+  <Project Path="DataAccessLayer/DataAccessLayer.csproj" />
+  <Project Path="EntityLayer/EntityLayer.csproj" />
+</Solution>

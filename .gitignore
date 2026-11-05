@@ -1,0 +1,59 @@
+# .NET derleme çıktıları
+**/[Bb]in/
+**/[Oo]bj/
+
+# Visual Studio ve kullanıcıya özel ayarlar
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Yerel yayın ayarları ve çıktıları
+*.pubxml.user
+/Core_Proje/Properties/PublishProfiles/FolderProfile.pubxml
+**/publish/
+**/artifacts/
+
+# Node bağımlılıkları
+**/node_modules/
+
+# Test çıktıları
+**/TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Log ve geçici dosyalar
+*.log
+*.tmp
+*.temp
+
+# Yerel veritabanı ve yedekler
+*.mdf
+*.ndf
+*.ldf
+*.bak
+*.db
+*.db-shm
+*.db-wal
+
+# Yerel ortam ve gizli ayarlar
+.env
+.env.*
+!.env.example
+**/appsettings.Local.json
+**/appsettings.*.Local.json
+*.pfx
+*.p12
+*.key
+*.pem
+
+# Kullanıcıların yüklediği profil görselleri
+/Core_Proje/wwwroot/userimage/*
+!/Core_Proje/wwwroot/userimage/.gitkeep
+
+# İşletim sistemi artıkları
+.DS_Store
+Thumbs.db
+Desktop.ini
